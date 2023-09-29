@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>HyperShift</title>
+    {{ dropzone.load_css() }}
+    {{ dropzone.style('border: 2px dashed #0087F7; margin: 2%; min-height: 400px;') }}
+
+</head>
+<body>
+
+	<h1 align = center>HyperShift</h1>
+    {{ dropzone.create(action='home') }}
+    {{ dropzone.load_js() }} 
+    {{ dropzone.config()}}
+    
+    <div align=center>
+        No submit button necessary! 
+	</div>
+	
+	<ul>
+    {% for file in files %}
+    <li>
+        <a href="{{ (request.path + '/' if request.path != '/' else '') + file }}">
+            {{ (request.path + '/' if request.path != '/' else '') + file }}
+        </a>
+    </li>
+    {% endfor %}
+</ul>
+	
+	
+<br/><br/>
+
+  
+</body>
+</html>
